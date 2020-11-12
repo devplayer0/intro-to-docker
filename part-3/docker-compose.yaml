@@ -1,0 +1,12 @@
+version: '3'
+services:
+  db:
+    image: redis:6-alpine
+    command: ['--appendonly', 'yes']
+    volumes:
+      - ./data:/data
+  app:
+    image: i2d/part-3
+    build: .
+    ports:
+      - '3000:3000'
